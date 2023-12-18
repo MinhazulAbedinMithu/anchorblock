@@ -4,7 +4,6 @@ import React from "react";
 const UsersLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      {/* <Navbar /> */}
       <main className="px-1 md:px-3 lg:px-28">{children}</main>
     </>
   );

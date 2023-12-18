@@ -1,9 +1,19 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import iconUpload from "@/assets/icons/upload-cloud.png";
 import iconPlus from "@/assets/icons/plus.png";
 import Image from "next/image";
 import UsersTable from "@/components/Users/UsersTable";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 const Users: React.FC = (): JSX.Element => {
+  const router = useRouter();
+  const { token } = useSelector((state: any) => state.auth);
+  useEffect(() => {
+    if (!token) {
+      router.push("/signin");
+    }
+  }, []);
   return (
     <div className="">
       <div className="flex-center-between py-8">

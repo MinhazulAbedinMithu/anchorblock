@@ -4,8 +4,8 @@ import { useLoginMutation } from "@/store/slices/apiSlice";
 import { setToken } from "@/store/slices/authSlice";
 import { setError } from "@/store/slices/userSlice";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const boxShadow =
@@ -16,6 +16,7 @@ const SignIn: React.FC = () => {
   const [login, { isLoading }] = useLoginMutation();
   const dispatch = useDispatch();
   const router = useRouter();
+  const pathname = usePathname();
 
   const { error } = useSelector((state: any) => state.user);
   const { token } = useSelector((state: any) => state.auth);
@@ -37,8 +38,14 @@ const SignIn: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (token) {
+      router.push("/users");
+    }
+  }, [pathname]);
+
   return (
-    <div className="w-full pt-[100px]">
+    <div className="w-full pt-[60px]">
       <div
         className={`w-full max-w-[444px] mx-auto px-4 lg:px-12 py-11 rounded-2xl border border-[#EEE] shadow-[${boxShadow}]`}
       >

@@ -19,7 +19,10 @@ export const api = createApi({
         body,
       }),
     }),
+    getUsers: builder.query<any, number>({
+      query: (page) => `/api/users?page=${page}`,
+    }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = api;
+export const { useRegisterMutation, useLoginMutation, useGetUsersQuery } = api;

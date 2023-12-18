@@ -39,7 +39,7 @@ const SignUp: React.FC = () => {
     }
   };
   return (
-    <div className="w-full pt-[100px]">
+    <div className="w-full pt-[60px]">
       <div
         className={`w-full max-w-[444px] mx-auto px-4 lg:px-12 py-11 rounded-2xl border border-[#EEE] shadow-[${boxShadow}]`}
       >
@@ -84,7 +84,7 @@ const SignUp: React.FC = () => {
           >
             Sign Up
           </button>
-          <p className="text-xs text-red-500">This field is required</p>
+          <p className="text-xs text-red-500">{error}</p>
         </form>
         <p className="mt-4 text-sm font-medium text-[#B0B7C3]">
           Already have an account?{" "}
